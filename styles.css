@@ -453,26 +453,84 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-5px);
 }
 
-/* ════════════ WHATSAPP FLOAT ════════════ */
-.whatsapp-float {
+/* ════════════ FOOTER ════════════ */
+.site-footer {
+  background-color: #1a1e1c;
+  color: #fff;
+  padding: 60px 0 20px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--color-beige-btn);
+}
+.footer-col p {
+  opacity: 0.8;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+.links-col ul {
+  list-style: none;
+}
+.links-col ul li {
+  margin-bottom: 10px;
+}
+.links-col ul li a {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  font-size: 0.95rem;
+}
+.links-col ul li a:hover {
+  opacity: 1;
+  color: var(--color-green-dark);
+}
+.footer-social {
+  margin-top: 15px;
+}
+.footer-social a {
+  display: inline-block;
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.footer-social a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  color: var(--color-green-dark);
+}
+.footer-bottom p {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* ════════════ WHATSAPP BUTTON ════════════ */
+.whatsapp-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 25px;
+  right: 25px;
   background-color: #25D366;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 9999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+.whatsapp-btn:hover {
+  transform: scale(1.08);
+  background-color: #20BA56;
+}
+.whatsapp-btn svg {
+  fill: white;
 }
 
 /* ════════════ RESPONSIVE ════════════ */
@@ -526,12 +584,12 @@ a { text-decoration: none; color: inherit; }
   .features-wrap { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
   .input-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
 
-  .whatsapp-float {
+  .whatsapp-btn {
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
   }
-  .whatsapp-float svg { width: 26px; height: 26px; }
 }

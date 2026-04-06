@@ -42,6 +42,9 @@ a { text-decoration: none; color: inherit; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
   padding: 12px 24px;
   border-radius: 99px;
   font-weight: 600;
@@ -411,6 +414,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   transition: background 0.2s ease;
   border-radius: var(--radius-sm);
+  gap: 15px;
 }
 .faq-question:hover { background: #faf8f5; }
 .faq-icon {
@@ -418,6 +422,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 400;
   color: var(--color-green-dark);
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 .faq-answer {
   max-height: 0;
@@ -485,9 +490,7 @@ a { text-decoration: none; color: inherit; }
   .proc-img-wrap, .proc-info { width: 100%; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .test-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
-@media (max-width: 768px) {
   .site-nav {
     position: absolute;
     top: 100%;
@@ -512,7 +515,9 @@ a { text-decoration: none; color: inherit; }
   .site-nav a { font-size: 1.1rem; }
   .hamburger { display: block; }
   .header-cta { display: none; }
+}
 
+@media (max-width: 768px) {
   .test-grid { 
     display: flex; 
     flex-direction: column; 

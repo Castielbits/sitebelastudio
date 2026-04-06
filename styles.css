@@ -288,6 +288,7 @@ a { text-decoration: none; color: inherit; }
   gap: 20px;
 }
 .test-card {
+  background-color: var(--color-green-dark);
   padding: 40px 30px;
   border-radius: var(--radius-md);
   color: white;

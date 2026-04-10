@@ -1716,11 +1716,12 @@ section {
     .faq-question { font-size: 0.98rem; }
 
     /* Instagram */
-    .instagram-section { padding: 80px 0 70px; }
+    .instagram-section { padding: 70px 0 60px; }
     .ig-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); }
-    .ig-embed-wrapper { height: 400px; }
-    .ig-embed-wrapper iframe { height: 400px !important; }
+    .ig-cards-grid { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .ig-embed-wrapper { height: 560px; }
+    .ig-embed-wrapper iframe { height: 560px !important; }
+    .ig-embed-wrapper:nth-child(n+3) { display: none; }
 
     /* Footer */
     .footer-body { grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 60px; padding-bottom: 50px; }
@@ -1779,11 +1780,11 @@ section {
     .faq-question { font-size: 0.92rem; padding: 18px 0; }
 
     /* Instagram */
-    .instagram-section { padding: 60px 0 50px; }
+    .instagram-section { padding: 50px 0 40px; }
     .ig-section-num { font-size: 0.65rem; }
-    .ig-cards-grid { grid-template-columns: 1fr; }
-    .ig-embed-wrapper { height: 380px; }
-    .ig-embed-wrapper iframe { height: 380px !important; }
+    .ig-cards-grid { max-width: 420px; }
+    .ig-embed-wrapper { height: 500px; }
+    .ig-embed-wrapper iframe { height: 500px !important; }
     .ig-bg-word { font-size: 52px; }
 
     /* Floating WhatsApp */
@@ -2084,9 +2085,11 @@ section {
     color: #262626;
 }
 
-/* Instagram grid — 4 cols desktop, 2 cols tablet, 1 col mobile (via media queries principais) */
+/* Instagram — breakpoints dedicados */
 @media (max-width: 1200px) {
-    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .ig-embed-wrapper { height: 520px; }
+    .ig-embed-wrapper iframe { height: 520px !important; }
 }
 
 /* ===== Awwwards Touches ===== */

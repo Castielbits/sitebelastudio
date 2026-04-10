@@ -127,31 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Testimonials Carousel
-    const track = document.getElementById('review-track');
-    if (track) {
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentIndex = 0;
-        const totalCards = track.children.length;
-        
-        const updateCarousel = () => {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        };
-        
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalCards - 1;
-                updateCarousel();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex < totalCards - 1) ? currentIndex + 1 : 0;
-                updateCarousel();
-            });
-        }
-    }
-
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {

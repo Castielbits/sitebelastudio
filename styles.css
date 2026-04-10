@@ -732,198 +732,159 @@ section {
 }
 
 
-/* Reviews */
+/* ===== Reviews ===== */
 .reviews {
     background-color: var(--dark-green);
-    color: white;
-    padding: 80px 0;
-}
-
-.depoimentos-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
-
-.depoimentos-title {
-    color: var(--text-light);
-    font-size: 2.2rem;
-    font-weight: 600;
-    white-space: normal;
-    line-height: 1.2;
-}
-
-.trustindex-widget {
-    background-color: rgba(0, 0, 0, 0.15); /* Slightly darker inner box for contrast with vibrant teal */
-    border-radius: 8px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    color: #fff;
+    padding: 90px 0;
     position: relative;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-    width: 100%;
 }
 
-.trustindex-summary {
+/* Cabeçalho */
+.reviews-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.reviews-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    padding: 10px 24px;
+    margin-bottom: 28px;
+}
+
+.rrb-score {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.rrb-stars {
+    color: #FFC107;
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.rrb-count {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.rrb-google {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 16px;
+    margin-left: 4px;
+}
+
+.reviews-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.reviews-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid de cards */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+
+.rc-header {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 150px;
-    text-align: center;
+    gap: 12px;
 }
 
-.ti-excellent {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #fff;
-    letter-spacing: 1px;
-}
-
-.ti-stars {
-    color: #FFC107;
-    font-size: 1.8rem;
-    line-height: 1;
-    margin-bottom: 5px;
-}
-
-.ti-based {
-    font-size: 0.8rem;
-    color: #ccc;
-    margin-bottom: 5px;
-}
-
-.ti-based strong {
-    color: #fff;
-}
-
-.ti-google-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -1px;
-}
-
-.trustindex-carousel {
-    overflow: hidden;
-    flex: 1;
-    position: relative;
-    padding: 10px 0;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.review-card-modern {
-    background-color: #fff;
-    color: var(--text-dark);
-    padding: 20px;
-    border-radius: 4px;
-    min-width: 100%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    box-sizing: border-box;
-}
-
-.rev-modern-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.rev-modern-avatar {
-    width: 40px;
-    height: 40px;
+.rc-avatar {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    color: white;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
     flex-shrink: 0;
 }
 
-.rev-modern-info {
+.rc-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.rc-info strong {
+    font-size: 0.88rem;
+    color: #111;
+    line-height: 1.3;
+}
+
+.rc-info span {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.rc-google-dot {
+    flex-shrink: 0;
+}
+
+.rc-stars {
+    color: #FFC107;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.rc-text {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.65;
     flex: 1;
 }
 
-.rev-modern-info h4 {
-    font-size: 0.9rem;
-    margin: 0 0 2px 0;
-    color: #000;
+@media (max-width: 900px) {
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.rev-date {
-    font-size: 0.75rem;
-    color: #888;
-}
-
-.rev-modern-stars {
-    color: #FFC107;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-}
-
-.blue-check {
-    color: #2196F3;
-    font-size: 0.9rem;
-}
-
-.rev-modern-text {
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-align: justify;
-}
-
-.rev-more {
-    color: #888;
-    text-decoration: none;
-    font-size: 0.8rem;
-    display: block;
-    text-align: center;
-}
-
-.rev-more:hover {
-    text-decoration: underline;
-}
-
-.carousel-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 10px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.carousel-btn:hover {
-    opacity: 1;
-}
-
-.trustindex-cert {
-    position: absolute;
-    bottom: -15px;
-    right: 20px;
-    background-color: #f1f1f1;
-    color: #333;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-weight: bold;
+@media (max-width: 560px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-rating-badge { flex-wrap: wrap; justify-content: center; }
 }
 
 /* Prints de Depoimentos — Premium Marquee */

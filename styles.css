@@ -665,9 +665,9 @@ section {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    min-height: 340px;
     transition: var(--transition);
 }
 
@@ -677,11 +677,8 @@ section {
 }
 
 .service-img-horizontal {
-    width: 40%;
-    flex-shrink: 0;
-    position: relative;
     overflow: hidden;
-    min-height: 300px;
+    position: relative;
 }
 
 .service-img-horizontal .service-img {
@@ -690,9 +687,8 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
     display: block;
-    border-radius: 0;
     transition: transform 0.5s ease;
 }
 
@@ -701,7 +697,6 @@ section {
 }
 
 .service-info-horizontal {
-    width: 60%;
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -1683,8 +1678,8 @@ section {
     .gallery-img-wrapper { min-width: 50%; flex: 1 0 50%; }
 
     /* Services */
-    .service-card-horizontal { flex-direction: column; }
-    .service-img-horizontal { width: 100%; min-height: 260px; }
+    .service-card-horizontal { grid-template-columns: 1fr; grid-template-rows: 260px auto; min-height: unset; }
+    .service-img-horizontal { width: 100%; }
     .service-info-horizontal { width: 100%; padding: 24px 20px; }
 
     /* Contact */
@@ -1736,7 +1731,7 @@ section {
     .gallery-img { height: 240px; }
 
     /* Services */
-    .service-img-horizontal { min-height: 220px; }
+    .service-card-horizontal { grid-template-rows: 220px auto; }
     .service-title-horizontal { font-size: 1.5rem; }
     .service-desc-horizontal { font-size: 0.95rem; }
 
@@ -1799,7 +1794,7 @@ section {
     .section-title { font-size: 1.7rem; }
 
     /* Services */
-    .service-img-horizontal { min-height: 200px; }
+    .service-card-horizontal { grid-template-rows: 200px auto; }
     .service-info-horizontal { padding: 18px 16px; }
     .service-title-horizontal { font-size: 1.3rem; margin-bottom: 12px; }
     .service-desc-horizontal { font-size: 0.9rem; margin-bottom: 12px; }

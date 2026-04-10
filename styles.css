@@ -135,10 +135,22 @@ h1, h2, h3, h4 {
     font-size: 1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
     margin-top: 25px;
     opacity: 0;
     transform: translateY(10px);
     animation: introTagIn 0.8s ease-out 1.2s forwards;
+}
+
+@media (max-width: 480px) {
+    .intro-tagline {
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+    }
+    .intro-logo {
+        height: 120px;
+    }
 }
 
 @keyframes introTagIn {

@@ -678,15 +678,26 @@ section {
 
 .service-img-horizontal {
     width: 40%;
+    flex-shrink: 0;
     position: relative;
-    padding: 20px;
+    overflow: hidden;
+    min-height: 300px;
 }
 
 .service-img-horizontal .service-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: calc(var(--border-radius) - 5px);
+    object-position: center;
+    display: block;
+    border-radius: 0;
+    transition: transform 0.5s ease;
+}
+
+.service-card-horizontal:hover .service-img {
+    transform: scale(1.04);
 }
 
 .service-info-horizontal {
@@ -1673,7 +1684,7 @@ section {
 
     /* Services */
     .service-card-horizontal { flex-direction: column; }
-    .service-img-horizontal { width: 100%; height: 260px; padding: 16px; }
+    .service-img-horizontal { width: 100%; min-height: 260px; }
     .service-info-horizontal { width: 100%; padding: 24px 20px; }
 
     /* Contact */
@@ -1725,7 +1736,7 @@ section {
     .gallery-img { height: 240px; }
 
     /* Services */
-    .service-img-horizontal { height: 220px; }
+    .service-img-horizontal { min-height: 220px; }
     .service-title-horizontal { font-size: 1.5rem; }
     .service-desc-horizontal { font-size: 0.95rem; }
 
@@ -1788,7 +1799,7 @@ section {
     .section-title { font-size: 1.7rem; }
 
     /* Services */
-    .service-img-horizontal { height: 200px; }
+    .service-img-horizontal { min-height: 200px; }
     .service-info-horizontal { padding: 18px 16px; }
     .service-title-horizontal { font-size: 1.3rem; margin-bottom: 12px; }
     .service-desc-horizontal { font-size: 0.9rem; margin-bottom: 12px; }

@@ -18,6 +18,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
     font-family: 'Outfit', sans-serif;
@@ -724,10 +729,11 @@ section {
 }
 
 .depoimentos-title {
-    color: var(--text-light); /* Changed to white for contrast */
+    color: var(--text-light);
     font-size: 2.2rem;
     font-weight: 600;
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.2;
 }
 
 .trustindex-widget {
@@ -1636,86 +1642,177 @@ section {
     color: var(--dark-green);
 }
 
-/* Media Queries */
+/* =============================================
+   MEDIA QUERIES — Responsividade Completa
+   ============================================= */
+
+/* --- Tablet largo (≤ 992px) --- */
 @media (max-width: 992px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
-    
-    .gallery-img-wrapper {
-        min-width: 50%;
-    }
-    
-    .service-card-horizontal {
-        flex-direction: column;
-    }
-    
-    .service-img-horizontal {
-        width: 100%;
-        height: 300px;
-    }
-    
-    .service-info-horizontal {
-        width: 100%;
-        padding: 30px 20px;
-    }
-    
-    .depoimentos-wrapper {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .trustindex-widget {
-        flex-direction: column;
-        padding: 20px 10px;
-        gap: 15px;
-    }
+    section { padding: 60px 0; }
+
+    /* Hero */
+    .hero { margin-top: 90px; }
+
+    /* About */
+    .about-split { gap: 30px; }
+
+    /* Gallery */
+    .gallery-img-wrapper { min-width: 50%; flex: 1 0 50%; }
+
+    /* Services */
+    .service-card-horizontal { flex-direction: column; }
+    .service-img-horizontal { width: 100%; height: 260px; padding: 16px; }
+    .service-info-horizontal { width: 100%; padding: 24px 20px; }
+
+    /* Contact */
+    .contact-wrapper { flex-direction: column; gap: 30px; }
+
+    /* Reviews */
+    .depoimentos-wrapper { flex-direction: column; text-align: center; gap: 20px; }
+    .trustindex-widget { flex-direction: column; padding: 20px 10px; gap: 15px; }
 }
 
+/* --- Mobile (≤ 768px) --- */
 @media (max-width: 768px) {
+    /* Geral */
+    section { padding: 50px 0; }
+
+    /* Header */
+    .header { top: 12px; width: 94%; border-radius: 40px; }
+    .header-content { height: 62px; }
+    .header-actions .btn { display: none; }
+
+    /* Nav mobile */
     .desktop-nav {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 68px;
         left: 0;
         width: 100%;
         background-color: var(--dark-green);
         padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         border-radius: 20px;
+        z-index: 999;
     }
-    
-    .desktop-nav .nav-links {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .header-actions .btn {
-        display: none;
-    }
-    
-    .gallery-img-wrapper {
-        min-width: 100%;
-    }
-    
-    .review-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .rev-header {
-        justify-content: center;
-    }
+    .desktop-nav .nav-links { flex-direction: column; gap: 20px; text-align: center; }
+    .desktop-nav .nav-links a { color: #fff; font-size: 1rem; }
+    .mobile-menu-toggle { display: flex; }
+
+    /* Hero */
+    .hero { margin-top: 80px; min-height: 100svh; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1rem; margin-bottom: 28px; }
+    .hero-badge { font-size: 0.85rem; }
+
+    /* Stats */
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    /* Gallery */
+    .gallery-img-wrapper { min-width: 100%; flex: 1 0 100%; }
+    .gallery-img { height: 240px; }
+
+    /* Services */
+    .service-img-horizontal { height: 220px; }
+    .service-title-horizontal { font-size: 1.5rem; }
+    .service-desc-horizontal { font-size: 0.95rem; }
+
+    /* Reviews */
+    .depoimentos-title { font-size: 1.6rem; }
+    .trustindex-widget { max-width: 100%; }
+
+    /* Depoimentos marquee */
+    .prints-title { font-size: 2rem; }
+    .marquee-fade-left, .marquee-fade-right { width: 80px; }
+    .marquee-track .print-item { width: 180px; }
+
+    /* Team */
+    .team-card { width: 100%; max-width: 340px; }
+
+    /* Contact */
+    .contact-form-card { padding: 28px 20px; }
+    .map-container { height: 260px !important; }
+
+    /* FAQ */
+    .faq-question { font-size: 0.98rem; }
+
+    /* Instagram */
+    .instagram-section { padding: 80px 0 70px; }
+    .ig-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .ig-embed-wrapper { height: 400px; }
+    .ig-embed-wrapper iframe { height: 400px !important; }
+
+    /* Footer */
+    .footer-body { grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 60px; padding-bottom: 50px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-desc { max-width: 100%; }
+}
+
+/* --- Mobile pequeno (≤ 480px) --- */
+@media (max-width: 480px) {
+    /* Geral */
+    section { padding: 40px 0; }
+    .container { padding: 0 16px; }
+
+    /* Header */
+    .header { top: 10px; width: 96%; }
+    .header-content { height: 56px; }
+    .logo { height: 38px; }
+
+    /* Hero */
+    .hero { margin-top: 70px; }
+    .hero-title { font-size: 1.75rem; line-height: 1.15; }
+    .hero-subtitle { font-size: 0.95rem; }
+    .hero-cta-pulse { font-size: 0.95rem !important; padding: 14px 24px !important; }
+
+    /* Stats */
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-number { font-size: 2.4rem; }
+    .stat-suffix { font-size: 1.8rem; }
+    .stat-label, .stat-desc { font-size: 0.85rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.7rem; }
+
+    /* Services */
+    .service-img-horizontal { height: 200px; }
+    .service-info-horizontal { padding: 18px 16px; }
+    .service-title-horizontal { font-size: 1.3rem; margin-bottom: 12px; }
+    .service-desc-horizontal { font-size: 0.9rem; margin-bottom: 12px; }
+
+    /* Reviews */
+    .reviews { padding: 50px 0; }
+    .depoimentos-title { font-size: 1.3rem; }
+    .trustindex-widget { padding: 16px 8px; }
+
+    /* Depoimentos marquee */
+    .prints-title { font-size: 1.5rem; }
+    .prints-eyebrow { font-size: 0.65rem; letter-spacing: 2px; }
+    .marquee-fade-left, .marquee-fade-right { width: 50px; }
+    .marquee-track .print-item { width: 150px; border-radius: 12px; }
+
+    /* Contact */
+    .contact-form-card { padding: 20px 16px; }
+    .contact-form-card h3 { font-size: 1.4rem; }
+
+    /* FAQ */
+    .faq-question { font-size: 0.92rem; padding: 18px 0; }
+
+    /* Instagram */
+    .instagram-section { padding: 60px 0 50px; }
+    .ig-section-num { font-size: 0.65rem; }
+    .ig-cards-grid { grid-template-columns: 1fr; }
+    .ig-embed-wrapper { height: 380px; }
+    .ig-embed-wrapper iframe { height: 380px !important; }
+    .ig-bg-word { font-size: 52px; }
+
+    /* Floating WhatsApp */
+    .floating-whatsapp { bottom: 16px; right: 16px; height: 50px; min-width: 50px; }
+
+    /* Footer */
+    .footer-body { grid-template-columns: 1fr; gap: 36px; padding-top: 50px; padding-bottom: 40px; }
+    .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
 }
 
 /* Instagram Section — Awwwards */
@@ -2008,32 +2105,9 @@ section {
     color: #262626;
 }
 
+/* Instagram grid — 4 cols desktop, 2 cols tablet, 1 col mobile (via media queries principais) */
 @media (max-width: 1200px) {
-    .ig-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .ig-top-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-    }
-    .ig-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .ig-cards-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .ig-bg-word {
-        font-size: 60px;
-    }
+    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ===== Awwwards Touches ===== */

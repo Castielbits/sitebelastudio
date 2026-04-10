@@ -1718,10 +1718,7 @@ section {
     /* Instagram */
     .instagram-section { padding: 70px 0 60px; }
     .ig-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .ig-cards-grid { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
-    .ig-embed-wrapper { height: 560px; }
-    .ig-embed-wrapper iframe { height: 560px !important; }
-    .ig-embed-wrapper:nth-child(n+3) { display: none; }
+    .ig-embed-wrapper { min-width: 300px; max-width: 340px; }
 
     /* Footer */
     .footer-body { grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 60px; padding-bottom: 50px; }
@@ -1782,9 +1779,7 @@ section {
     /* Instagram */
     .instagram-section { padding: 50px 0 40px; }
     .ig-section-num { font-size: 0.65rem; }
-    .ig-cards-grid { max-width: 420px; }
-    .ig-embed-wrapper { height: 500px; }
-    .ig-embed-wrapper iframe { height: 500px !important; }
+    .ig-embed-wrapper { min-width: 270px; max-width: 310px; }
     .ig-bg-word { font-size: 52px; }
 
     /* Floating WhatsApp */
@@ -1892,20 +1887,29 @@ section {
 
 /* Cards grid */
 .ig-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 12px;
     position: relative;
     z-index: 1;
+    align-items: flex-start;
+}
+
+.ig-cards-grid::-webkit-scrollbar {
+    display: none;
 }
 
 /* Staggered reveal + subtle tilt on hover */
 .ig-embed-wrapper {
-    min-width: 0;
+    flex: 0 0 auto;
+    min-width: 320px;
+    max-width: 360px;
     overflow: hidden;
     border-radius: 12px;
-    height: 480px;
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.7s ease var(--delay, 0s),
@@ -1927,8 +1931,6 @@ section {
 .ig-embed-wrapper iframe {
     border-radius: 12px !important;
     width: 100% !important;
-    min-width: 100% !important;
-    height: 480px !important;
 }
 
 /* Keep old mock card styles as fallback */
@@ -2086,10 +2088,8 @@ section {
 }
 
 /* Instagram — breakpoints dedicados */
-@media (max-width: 1200px) {
-    .ig-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .ig-embed-wrapper { height: 520px; }
-    .ig-embed-wrapper iframe { height: 520px !important; }
+@media (max-width: 768px) {
+    .ig-embed-wrapper { min-width: 280px; max-width: 320px; }
 }
 
 /* ===== Awwwards Touches ===== */

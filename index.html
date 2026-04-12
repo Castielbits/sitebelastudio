@@ -336,10 +336,12 @@
                     <p class="reviews-sub">Atendimento humanizado, atenção aos detalhes e foco em resultado fazem parte da experiência de cada paciente.</p>
                 </div>
 
-                <!-- Grid de cards -->
-                <div class="reviews-grid">
+                <!-- Carousel de cards -->
+                <div class="rc-carousel-root">
+                    <div class="rc-stage" id="rcStage">
+                        <div class="rc-track" id="rcTrack">
 
-                    <div class="review-card fade-in-up">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#C2185B;">M</div>
                             <div class="rc-info">
@@ -354,7 +356,7 @@
                         <p class="rc-text">Fiz fisioterapia após uma cirurgia de retirada de neuroma de Morton. Fui atendida com muito carinho e dedicação. É muito didática, nos deixa à vontade pra tirar dúvidas e acompanha cada etapa com atenção.</p>
                     </div>
 
-                    <div class="review-card fade-in-up" style="--delay:.1s">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#1565C0;">A</div>
                             <div class="rc-info">
@@ -369,7 +371,7 @@
                         <p class="rc-text">Ambiente acolhedor, profissional extremamente competente e atenciosa. Fiz pilates e fisioterapia aqui e os resultados foram incríveis. Recomendo demais para quem busca qualidade de vida!</p>
                     </div>
 
-                    <div class="review-card fade-in-up" style="--delay:.2s">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#2E7D32;">R</div>
                             <div class="rc-info">
@@ -384,7 +386,7 @@
                         <p class="rc-text">Passei por uma reabilitação pós-operatória no Bela Studio e fui muito bem cuidado. A Isabela tem olhar clínico apurado e atendimento humanizado que faz toda a diferença na recuperação.</p>
                     </div>
 
-                    <div class="review-card fade-in-up" style="--delay:.3s">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#6A1B9A;">P</div>
                             <div class="rc-info">
@@ -399,7 +401,7 @@
                         <p class="rc-text">Lugar incrível! A Isabela é uma profissional dedicada e muito atenciosa. As sessões de pilates transformaram minha postura e reduziram minhas dores crônicas. Indico para todos!</p>
                     </div>
 
-                    <div class="review-card fade-in-up" style="--delay:.4s">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#E65100;">F</div>
                             <div class="rc-info">
@@ -414,7 +416,7 @@
                         <p class="rc-text">Atendimento impecável desde o agendamento até o final da sessão. Estrutura ótima, profissional altamente qualificada. Minha lombalgia melhorou muito após poucas semanas de tratamento.</p>
                     </div>
 
-                    <div class="review-card fade-in-up" style="--delay:.5s">
+                    <div class="review-card">
                         <div class="rc-header">
                             <div class="rc-avatar" style="background:#00695C;">C</div>
                             <div class="rc-info">
@@ -429,7 +431,28 @@
                         <p class="rc-text">Voltei a praticar esporte após lesão no joelho graças ao trabalho da Isabela. Acompanhamento preciso, dedicado e personalizado. O Bela Studio é referência em fisioterapia na região!</p>
                     </div>
 
-                </div>
+                        </div><!-- /.rc-track -->
+                    </div><!-- /.rc-stage -->
+
+                    <!-- Setas -->
+                    <button class="rc-arrow rc-arrow-prev" id="rcPrev" aria-label="Anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <button class="rc-arrow rc-arrow-next" id="rcNext" aria-label="Próximo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="rc-dots" id="rcDots">
+                        <button class="rc-dot" aria-label="Avaliação 1"></button>
+                        <button class="rc-dot" aria-label="Avaliação 2"></button>
+                        <button class="rc-dot" aria-label="Avaliação 3"></button>
+                        <button class="rc-dot" aria-label="Avaliação 4"></button>
+                        <button class="rc-dot" aria-label="Avaliação 5"></button>
+                        <button class="rc-dot" aria-label="Avaliação 6"></button>
+                    </div>
+
+                </div><!-- /.rc-carousel-root -->
             </div>
         </section>
 

@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1
     };
     
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -189,6 +189,96 @@ document.addEventListener('DOMContentLoaded', () => {
             const walk = (x - startX) * 2; // scroll speed multiplier
             galleryGrid.scrollLeft = scrollLeft - walk;
         });
+    }
+
+    // ── Reviews Carousel ──
+    const rcTrack = document.getElementById('rcTrack');
+    const rcStage = document.getElementById('rcStage');
+    if (rcTrack && rcStage) {
+        const rcCards   = [...rcTrack.querySelectorAll('.review-card')];
+        const rcDots    = [...document.querySelectorAll('.rc-dot')];
+        const rcPrev    = document.getElementById('rcPrev');
+        const rcNext    = document.getElementById('rcNext');
+        const total     = rcCards.length;
+        let current     = 0;
+        let autoplayId  = null;
+
+        function getCardWidth() {
+            return rcCards[0].offsetWidth + 28; // card + gap
+        }
+
+        function updateCarousel() {
+            const cardW     = getCardWidth();
+            const stageW    = rcStage.offsetWidth;
+            const offset    = stageW / 2 - rcCards[0].offsetWidth / 2 - current * cardW;
+            rcTrack.style.transform = `translateX(${offset}px)`;
+
+            rcCards.forEach((card, i) => {
+                card.classList.remove('rc-active', 'rc-adjacent');
+                const diff = Math.abs(i - current);
+                if (diff === 0) card.classList.add('rc-active');
+                else if (diff === 1) card.classList.add('rc-adjacent');
+            });
+
+            rcDots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+        }
+
+        function goTo(index) {
+            current = (index + total) % total;
+            updateCarousel();
+        }
+
+        function startAutoplay() {
+            autoplayId = setInterval(() => goTo(current + 1), 5000);
+        }
+        function stopAutoplay() { clearInterval(autoplayId); }
+
+        rcPrev.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
+        rcNext.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+        rcDots.forEach((dot, i) => dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); }));
+
+        // Click on side cards advances the carousel
+        rcCards.forEach((card, i) => {
+            card.addEventListener('click', () => {
+                if (i !== current) { stopAutoplay(); goTo(i); startAutoplay(); }
+            });
+        });
+
+        // Pause autoplay on hover
+        rcStage.addEventListener('mouseenter', stopAutoplay);
+        rcStage.addEventListener('mouseleave', startAutoplay);
+
+        // Touch / drag support
+        let dragStartX = null;
+        rcStage.addEventListener('pointerdown', e => { dragStartX = e.clientX; rcTrack.style.transition = 'none'; });
+        rcStage.addEventListener('pointermove', e => {
+            if (dragStartX === null) return;
+            const cardW  = getCardWidth();
+            const stageW = rcStage.offsetWidth;
+            const base   = stageW / 2 - rcCards[0].offsetWidth / 2 - current * cardW;
+            rcTrack.style.transform = `translateX(${base + (e.clientX - dragStartX)}px)`;
+        });
+        rcStage.addEventListener('pointerup', e => {
+            if (dragStartX === null) return;
+            const dx = e.clientX - dragStartX;
+            dragStartX = null;
+            rcTrack.style.transition = '';
+            if (Math.abs(dx) > 50) { stopAutoplay(); goTo(current + (dx < 0 ? 1 : -1)); startAutoplay(); }
+            else updateCarousel();
+        });
+        rcStage.addEventListener('pointerleave', () => {
+            if (dragStartX !== null) {
+                dragStartX = null;
+                rcTrack.style.transition = '';
+                updateCarousel();
+            }
+        });
+
+        // Recalculate on resize
+        window.addEventListener('resize', updateCarousel, { passive: true });
+
+        goTo(0);
+        startAutoplay();
     }
 
     // Animated Numbers Counter

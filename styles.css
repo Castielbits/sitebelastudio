@@ -880,38 +880,98 @@ section {
     line-height: 1.6;
 }
 
-/* Grid de cards */
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+/* ── Carousel root ── */
+.rc-carousel-root {
+    position: relative;
+    padding-bottom: 60px; /* espaço para dots */
 }
 
+/* Stage — overflow hidden, altura fixa para não "saltar" */
+.rc-stage {
+    overflow: hidden;
+    padding: 40px 0 50px;
+    cursor: grab;
+}
+.rc-stage:active { cursor: grabbing; }
+
+/* Track — flex row que translada */
+.rc-track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    will-change: transform;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+/* Card base — dark glass, dim por padrão */
 .review-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 24px;
+    flex: 0 0 360px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 22px;
+    padding: 38px 32px 30px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    /* Estado inativo */
+    opacity: 0.38;
+    transform: scale(0.86);
+    transition: opacity 0.55s ease,
+                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.55s ease,
+                border-color 0.55s ease;
+    cursor: pointer;
 }
 
-.review-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+/* Aspas decorativas */
+.review-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 0px;
+    left: 22px;
+    font-size: 130px;
+    line-height: 1;
+    color: var(--primary-color);
+    opacity: 0.12;
+    font-family: Georgia, 'Times New Roman', serif;
+    pointer-events: none;
+    transition: opacity 0.55s ease;
 }
 
+/* Card adjacente (±1 do ativo) */
+.review-card.rc-adjacent {
+    opacity: 0.58;
+    transform: scale(0.93);
+}
+
+/* Card ativo — destaque total */
+.review-card.rc-active {
+    opacity: 1;
+    transform: scale(1.04);
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.22);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.55),
+                0 0 0 1px rgba(107,158,115,0.25);
+    cursor: default;
+}
+
+.review-card.rc-active::before { opacity: 0.22; }
+
+/* Cabeçalho do card */
 .rc-header {
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
+    z-index: 1;
 }
 
 .rc-avatar {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     color: #fff;
     font-weight: 700;
@@ -930,40 +990,100 @@ section {
 }
 
 .rc-info strong {
-    font-size: 0.88rem;
-    color: #111;
+    font-size: 0.86rem;
+    color: #fff;
     line-height: 1.3;
 }
 
 .rc-info span {
-    font-size: 0.75rem;
-    color: #999;
+    font-size: 0.73rem;
+    color: rgba(255,255,255,0.45);
 }
 
-.rc-google-dot {
-    flex-shrink: 0;
-}
+.rc-google-dot { flex-shrink: 0; }
 
 .rc-stars {
     color: #FFC107;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
 }
 
 .rc-text {
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.65;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
     flex: 1;
+    position: relative;
+    z-index: 1;
 }
 
-@media (max-width: 900px) {
-    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+/* ── Setas ── */
+.rc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(calc(-50% - 30px));
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+.rc-arrow svg { width: 20px; height: 20px; }
+
+.rc-arrow:hover {
+    background: rgba(107,158,115,0.25);
+    border-color: rgba(107,158,115,0.6);
+}
+
+.rc-arrow-prev { left: 0; }
+.rc-arrow-next { right: 0; }
+
+.rc-arrow-prev:hover { transform: translateY(calc(-50% - 30px)) translateX(-2px); }
+.rc-arrow-next:hover { transform: translateY(calc(-50% - 30px)) translateX(2px); }
+
+/* ── Dots ── */
+.rc-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.rc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, width 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.35s ease;
+    padding: 0;
+}
+
+.rc-dot.active {
+    width: 28px;
+    border-radius: 4px;
+    background: var(--primary-color);
 }
 
 @media (max-width: 560px) {
-    .reviews-grid { grid-template-columns: 1fr; }
     .reviews-rating-badge { flex-wrap: wrap; justify-content: center; }
+    .review-card { flex: 0 0 300px; padding: 28px 22px 22px; }
+    .rc-arrow { display: none; }
 }
 
 /* Prints de Depoimentos — Premium Marquee */

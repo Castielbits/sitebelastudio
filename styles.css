@@ -813,7 +813,7 @@ section {
 
 /* ===== Reviews ===== */
 .reviews {
-    background-color: var(--dark-green);
+    background-color: #0d0f0e;
     color: #fff;
     padding: 90px 0;
     position: relative;

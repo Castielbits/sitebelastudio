@@ -791,7 +791,7 @@ section {
 }
 
 .btn-flex {
-    align-self: flex-start;
+    align-self: center;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -801,6 +801,13 @@ section {
 
 .whatsapp-icon-sm {
     font-size: 1.2rem;
+}
+
+.wa-icon-svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    flex-shrink: 0;
 }
 
 

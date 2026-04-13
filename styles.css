@@ -2456,3 +2456,70 @@ section {
 .prints-depoimentos { position: relative; }
 .reviews { position: relative; }
 .instagram-section { position: relative; overflow: hidden; }
+
+/* Instagram mobile fix */
+@media (max-width: 768px) {
+    .instagram-section {
+        padding: 72px 0 56px;
+    }
+
+    .ig-top-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        margin-bottom: 32px;
+    }
+
+    .ig-title-area {
+        width: 100%;
+    }
+
+    .ig-btn-outline {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ig-cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .ig-embed-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        flex: 1 1 auto;
+    }
+
+    .ig-embed-wrapper iframe,
+    .ig-embed-wrapper .instagram-media {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .instagram-section {
+        padding: 52px 0 40px;
+    }
+
+    .ig-bg-word {
+        font-size: 52px;
+    }
+
+    .ig-top-row {
+        margin-bottom: 24px;
+    }
+
+    .ig-title-area h2 {
+        font-size: 2rem;
+    }
+
+    .ig-cards-grid {
+        gap: 14px;
+    }
+}

@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = this.querySelector('input[type="text"]').value.trim();
             const phone = this.querySelector('input[type="tel"]').value.trim();
             const msg = `Olá! Me chamo ${name} e gostaria de agendar uma avaliação. Meu telefone: ${phone}`;
-            window.open(`https://wa.me/553182230326?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/5531988633814?text=${encodeURIComponent(msg)}`, '_blank');
             const successEl = document.getElementById('formSuccess');
             if (successEl) {
                 successEl.classList.add('visible');

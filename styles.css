@@ -2027,8 +2027,25 @@ section {
 
     /* Instagram */
     .instagram-section { padding: 70px 0 60px; }
-    .ig-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .ig-embed-wrapper { min-width: 300px; max-width: 340px; }
+    .ig-top-row { flex-direction: column; align-items: stretch; gap: 20px; }
+    .ig-btn-outline { width: 100%; justify-content: center; }
+    .ig-cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow-x: visible;
+        gap: 18px;
+        padding-bottom: 0;
+    }
+    .ig-embed-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        flex: 1 1 auto;
+    }
+    .ig-embed-wrapper .instagram-media {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
 
     /* Footer */
     .footer-body { grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 60px; padding-bottom: 50px; }
@@ -2089,7 +2106,8 @@ section {
     /* Instagram */
     .instagram-section { padding: 50px 0 40px; }
     .ig-section-num { font-size: 0.65rem; }
-    .ig-embed-wrapper { min-width: 270px; max-width: 310px; }
+    .ig-cards-grid { gap: 14px; }
+    .ig-embed-wrapper { min-width: 0; max-width: none; }
     .ig-bg-word { font-size: 52px; }
 
     /* Floating WhatsApp */

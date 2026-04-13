@@ -9,40 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // Custom Cursor (only on devices with fine pointer)
-    if (window.matchMedia('(pointer: fine)').matches) {
-        const dot = document.getElementById('cursorDot');
-        const ring = document.getElementById('cursorRing');
-
-        if (dot && ring) {
-            let ringX = 0, ringY = 0;
-            let mouseX = 0, mouseY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                dot.style.left = mouseX + 'px';
-                dot.style.top  = mouseY + 'px';
-            }, { passive: true });
-
-            // Ring follows with smooth lag
-            (function animateRing() {
-                ringX += (mouseX - ringX) * 0.12;
-                ringY += (mouseY - ringY) * 0.12;
-                ring.style.left = ringX + 'px';
-                ring.style.top  = ringY + 'px';
-                requestAnimationFrame(animateRing);
-            })();
-
-            // Expand on interactive elements
-            const hoverTargets = document.querySelectorAll('a, button, [role="button"]');
-            hoverTargets.forEach(el => {
-                el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
-                el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
-            });
-        }
-    }
-
     // Intro Splash Screen
     const splash = document.getElementById('introSplash');
     if (splash) {
@@ -248,30 +214,53 @@ document.addEventListener('DOMContentLoaded', () => {
         rcStage.addEventListener('mouseenter', stopAutoplay);
         rcStage.addEventListener('mouseleave', startAutoplay);
 
-        // Touch / drag support
+        // Touch / drag support (pointer events — funciona em touch e mouse)
         let dragStartX = null;
-        rcStage.addEventListener('pointerdown', e => { dragStartX = e.clientX; rcTrack.style.transition = 'none'; });
+        let dragStartY = null;
+        let isDraggingH = false;
+
+        rcStage.addEventListener('pointerdown', e => {
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            isDraggingH = false;
+            rcTrack.style.transition = 'none';
+            rcStage.setPointerCapture(e.pointerId);
+        });
+
         rcStage.addEventListener('pointermove', e => {
             if (dragStartX === null) return;
+            const dx = e.clientX - dragStartX;
+            const dy = e.clientY - dragStartY;
+
+            // Decide direção na primeira movimentação significativa
+            if (!isDraggingH && Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+            if (!isDraggingH) {
+                if (Math.abs(dx) < Math.abs(dy)) { dragStartX = null; return; } // scroll vertical — abandona
+                isDraggingH = true;
+            }
+
+            e.preventDefault();
             const cardW  = getCardWidth();
             const stageW = rcStage.offsetWidth;
             const base   = stageW / 2 - rcCards[0].offsetWidth / 2 - current * cardW;
-            rcTrack.style.transform = `translateX(${base + (e.clientX - dragStartX)}px)`;
-        });
+            rcTrack.style.transform = `translateX(${base + dx}px)`;
+        }, { passive: false });
+
         rcStage.addEventListener('pointerup', e => {
             if (dragStartX === null) return;
             const dx = e.clientX - dragStartX;
             dragStartX = null;
+            isDraggingH = false;
             rcTrack.style.transition = '';
             if (Math.abs(dx) > 50) { stopAutoplay(); goTo(current + (dx < 0 ? 1 : -1)); startAutoplay(); }
             else updateCarousel();
         });
-        rcStage.addEventListener('pointerleave', () => {
-            if (dragStartX !== null) {
-                dragStartX = null;
-                rcTrack.style.transition = '';
-                updateCarousel();
-            }
+
+        rcStage.addEventListener('pointercancel', () => {
+            dragStartX = null;
+            isDraggingH = false;
+            rcTrack.style.transition = '';
+            updateCarousel();
         });
 
         // Recalculate on resize

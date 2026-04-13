@@ -300,4 +300,39 @@ document.addEventListener('DOMContentLoaded', () => {
         
         counterObserver.observe(statsSection);
     }
+
+    // Google Review Counters Animation
+    const googleReviewCounters = document.querySelectorAll('.google-review-counter');
+    if (googleReviewCounters.length > 0) {
+        const reviewObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const target = +entry.target.getAttribute('data-target');
+                    let current = 0;
+                    const updateCount = () => {
+                        const inc = target / 30; // aprox 30 frames
+                        current += inc;
+                        if (current < target) {
+                            entry.target.innerText = Math.ceil(current);
+                            setTimeout(updateCount, 40);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    
+                    let delay = 300;
+                    // Se estiver no topo da página, agurada a tela de abertura (splash) passar (+- 3.5s)
+                    if (entry.target.closest('#home') || entry.target.closest('.header')) {
+                        delay = 3500;
+                    }
+                    setTimeout(updateCount, delay);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        googleReviewCounters.forEach(counter => {
+            reviewObserver.observe(counter);
+        });
+    }
 });

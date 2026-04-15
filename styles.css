@@ -2594,14 +2594,10 @@ section {
 @media (max-width: 768px) {
     .hero {
         align-items: flex-end;
-        padding-bottom: 40vh;
+        padding-bottom: 28vh;
     }
     .hero-content {
         margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
     
     .instagram-section {

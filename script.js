@@ -127,34 +127,108 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Draggable Gallery Grid
-    const galleryGrid = document.querySelector('.gallery-grid');
-    if (galleryGrid) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
 
-        galleryGrid.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - galleryGrid.offsetLeft;
-            scrollLeft = galleryGrid.scrollLeft;
+
+    // ── Gallery Carousel ──
+    const galleryTrack = document.getElementById('galleryTrack');
+    const galleryDotsContainer = document.getElementById('galleryDots');
+
+    if (galleryTrack && galleryDotsContainer) {
+        const gallerySlides = [...galleryTrack.querySelectorAll('.gallery-carousel-slide')];
+        const totalSlides = gallerySlides.length;
+        let galleryCurrent = 0;
+        let galleryAutoplayId = null;
+
+        function getVisibleCount() {
+            if (window.innerWidth <= 600) return 1;
+            if (window.innerWidth <= 992) return 2;
+            return 3;
+        }
+
+        function getMaxIndex() {
+            return Math.max(0, totalSlides - getVisibleCount());
+        }
+
+        function buildDots() {
+            galleryDotsContainer.innerHTML = '';
+            const maxIdx = getMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'gallery-dot';
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    stopGalleryAutoplay();
+                    galleryGoTo(i);
+                    startGalleryAutoplay();
+                });
+                galleryDotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateGalleryDots() {
+            const dots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === galleryCurrent));
+        }
+
+        function galleryGoTo(index) {
+            const maxIdx = getMaxIndex();
+            galleryCurrent = Math.max(0, Math.min(index, maxIdx));
+            const slidePercent = 100 / getVisibleCount();
+            galleryTrack.style.transform = `translateX(-${galleryCurrent * slidePercent}%)`;
+            updateGalleryDots();
+        }
+
+        function startGalleryAutoplay() {
+            galleryAutoplayId = setInterval(() => {
+                const maxIdx = getMaxIndex();
+                galleryGoTo(galleryCurrent >= maxIdx ? 0 : galleryCurrent + 1);
+            }, 4000);
+        }
+
+        function stopGalleryAutoplay() {
+            clearInterval(galleryAutoplayId);
+        }
+
+
+
+        // Touch/drag support
+        let gDragStartX = null;
+        const stage = galleryTrack.parentElement;
+
+        stage.addEventListener('pointerdown', e => {
+            gDragStartX = e.clientX;
+            galleryTrack.style.transition = 'none';
+            stage.setPointerCapture(e.pointerId);
         });
 
-        galleryGrid.addEventListener('mouseleave', () => {
-            isDown = false;
+        stage.addEventListener('pointerup', e => {
+            if (gDragStartX === null) return;
+            const dx = e.clientX - gDragStartX;
+            gDragStartX = null;
+            galleryTrack.style.transition = '';
+            if (Math.abs(dx) > 50) {
+                stopGalleryAutoplay();
+                galleryGoTo(galleryCurrent + (dx < 0 ? 1 : -1));
+                startGalleryAutoplay();
+            } else {
+                galleryGoTo(galleryCurrent);
+            }
         });
 
-        galleryGrid.addEventListener('mouseup', () => {
-            isDown = false;
+        stage.addEventListener('pointercancel', () => {
+            gDragStartX = null;
+            galleryTrack.style.transition = '';
+            galleryGoTo(galleryCurrent);
         });
 
-        galleryGrid.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - galleryGrid.offsetLeft;
-            const walk = (x - startX) * 2; // scroll speed multiplier
-            galleryGrid.scrollLeft = scrollLeft - walk;
-        });
+        window.addEventListener('resize', () => {
+            buildDots();
+            galleryGoTo(Math.min(galleryCurrent, getMaxIndex()));
+        }, { passive: true });
+
+        buildDots();
+        galleryGoTo(0);
+        startGalleryAutoplay();
     }
 
     // ── Reviews Carousel ──

@@ -77,11 +77,10 @@
     <main>
         <!-- Hero Section -->
         <section class="hero paralax" id="home">
-            <div class="hero-bg hero-bg-1"></div>
-            <div class="hero-bg hero-bg-2"></div>
+            <div class="hero-bg" style="background-image: url('images/bannerbelastudio.png');"></div>
             <div class="hero-overlay"></div>
             <div class="container">
-                <div class="hero-content fade-in-up">
+                <div class="hero-content hero-reveal-container">
                     <div class="hero-badge">
                         <span class="hero-badge-stars">
                             <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
@@ -153,29 +152,51 @@
             </div>
         </section>
 
-        <!-- Galeria -->
-        <section class="gallery fade-in" id="galeria">
-            <div class="container section-header" style="margin-bottom: 30px;">
-                <p class="gallery-subtitle" style="font-size: 1.2rem; color: #555; text-align: center;">Um espaço
-                    preparado para acolher você com conforto, atenção e acompanhamento profissional.</p>
+        <!-- Galeria / Conheça nosso espaço -->
+        <section class="gallery-carousel-section fade-in" id="galeria">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 class="section-title">Conheça nosso espaço</h2>
+                    <p style="font-size: 1.15rem; color: #555; text-align: center; max-width: 650px; margin: 15px auto 0;">Um espaço
+                        preparado para acolher você com conforto, atenção e acompanhamento profissional.</p>
+                    <div class="title-divider" style="margin-top: 15px;"></div>
+                </div>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-img-wrapper">
-                    <img src="images/gallery_pilates_1_1775475455665.png" alt="Pilates 1" class="gallery-img"
-                        loading="lazy">
+
+            <div class="gallery-carousel-root">
+                <div class="gallery-carousel-stage">
+                    <div class="gallery-carousel-track" id="galleryTrack">
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/dra2.jpeg" alt="Dra. Isabela na recepção do Bela Studio" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco.jpeg" alt="Sala de Pilates com equipamentos profissionais" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco2.jpeg" alt="Espaço completo de treino e reabilitação" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/dra1.jpeg" alt="Dra. Isabela Gonçalves - Fisioterapeuta" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco3.jpeg" alt="Fachada do Bela Studio" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco4.jpeg" alt="Recepção acolhedora do Bela Studio" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco5.jpeg" alt="Consultório elegante" loading="lazy">
+                        </div>
+                        <div class="gallery-carousel-slide">
+                            <img src="Espaco/espaco6.jpeg" alt="Detalhes do espaço" loading="lazy">
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-img-wrapper">
-                    <img src="images/gallery_pilates_2_1775475533069.png" alt="Pilates 2" class="gallery-img"
-                        loading="lazy">
-                </div>
-                <div class="gallery-img-wrapper">
-                    <img src="images/gallery_pilates_3_1775475587764.png" alt="Pilates 3" class="gallery-img"
-                        loading="lazy">
-                </div>
-                <div class="gallery-img-wrapper">
-                    <img src="images/studio_interior_1775473957318.png" alt="Studio Interior" class="gallery-img"
-                        loading="lazy">
-                </div>
+
+
+
+                <!-- Dots -->
+                <div class="gallery-dots" id="galleryDots"></div>
             </div>
         </section>
 
@@ -372,104 +393,132 @@
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#C2185B;">M</div>
+                                    <div class="rc-avatar" style="background:#00796B;">E</div>
                                     <div class="rc-info">
-                                        <strong>Márcia Helena Muniz G. de Oliveira</strong>
-                                        <span>out. 2024</span>
+                                        <strong>Edmar Alves</strong>
+                                        <span>Guia local · 198 avaliações</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Fiz fisioterapia após uma cirurgia de retirada de neuroma de Morton.
-                                    Fui atendida com muito carinho e dedicação. É muito didática, nos deixa à vontade
-                                    pra tirar dúvidas e acompanha cada etapa com atenção.</p>
+                                <p class="rc-text">Super recomendo esse Studio! A Isabella (Bella) é uma profissional muito competente e super dedicada, atendimento super gentil de toda equipe e adora celebrar e cativar seus clientes com mimos em datas comemorativas, aniversários, eventos…</p>
                             </div>
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#1565C0;">A</div>
+                                    <div class="rc-avatar" style="background:#1565C0;">F</div>
                                     <div class="rc-info">
-                                        <strong>Ana Carolina Souza</strong>
-                                        <span>ago. 2024</span>
+                                        <strong>Felipe Pedrosa</strong>
+                                        <span>9 avaliações</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Ambiente acolhedor, profissional extremamente competente e atenciosa.
-                                    Fiz pilates e fisioterapia aqui e os resultados foram incríveis. Recomendo demais
-                                    para quem busca qualidade de vida!</p>
+                                <p class="rc-text">Doze meses. Esse é o tempo em que estou sendo assistido pelo Espaço Bela Studio e Pilates. Premiado com duas hérnias de disco, a atividade é um remédio que eu não deixo de usar. No estúdio, com ótimas profissionais, esse remédio deixou de ser amargo para se tornar prazeroso. Obrigado, equipe!</p>
                             </div>
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#2E7D32;">R</div>
+                                    <div class="rc-avatar" style="background:#6A1B9A;">J</div>
                                     <div class="rc-info">
-                                        <strong>Roberto Carlos Ferreira</strong>
-                                        <span>jun. 2024</span>
+                                        <strong>Jessica de Oliveira</strong>
+                                        <span>Guia local · 18 avaliações</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Passei por uma reabilitação pós-operatória no Bela Studio e fui muito
-                                    bem cuidado. A Isabela tem olhar clínico apurado e atendimento humanizado que faz
-                                    toda a diferença na recuperação.</p>
+                                <p class="rc-text">Bela e Mariana são profissionais excelentes, atenciosas e que estimulam a gente a dar nosso melhor, sempre com muita segurança. Já fiz pilates em muitos lugares e cidades diferentes e, sem dúvida, tem sido minha melhor experiência até hoje. Super recomendo!</p>
                             </div>
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#6A1B9A;">P</div>
+                                    <div class="rc-avatar" style="background:#E65100;">J</div>
                                     <div class="rc-info">
-                                        <strong>Patrícia Alves Drummond</strong>
-                                        <span>mar. 2024</span>
+                                        <strong>Juliane Rezende</strong>
+                                        <span>1 avaliação</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Lugar incrível! A Isabela é uma profissional dedicada e muito
-                                    atenciosa. As sessões de pilates transformaram minha postura e reduziram minhas
-                                    dores crônicas. Indico para todos!</p>
+                                <p class="rc-text">Excelente ambiente, com profissionais maravilhosos! Cliente há mais de 5 anos, fiz o melhor investimento da minha vida, só tenho gratidão pelo atendimento, amizade, gentileza e atenção!</p>
                             </div>
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#E65100;">F</div>
+                                    <div class="rc-avatar" style="background:#2E7D32;">J</div>
                                     <div class="rc-info">
-                                        <strong>Fernanda Costa Lima</strong>
-                                        <span>fev. 2024</span>
+                                        <strong>João Guimarães</strong>
+                                        <span>5 avaliações</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Atendimento impecável desde o agendamento até o final da sessão.
-                                    Estrutura ótima, profissional altamente qualificada. Minha lombalgia melhorou muito
-                                    após poucas semanas de tratamento.</p>
+                                <p class="rc-text">Bem impressionado nestes quase dois meses que pratico pilates na Bela Studio. Muito profissionalismo e comprometimento de toda equipe. Agradeço a Isabela, Fernanda, Ana e Bruna pelo carinho e dedicação.</p>
                             </div>
 
                             <div class="review-card">
                                 <div class="rc-header">
-                                    <div class="rc-avatar" style="background:#00695C;">C</div>
+                                    <div class="rc-avatar" style="background:#C2185B;">F</div>
                                     <div class="rc-info">
-                                        <strong>Carlos Eduardo Mendes</strong>
-                                        <span>jan. 2024</span>
+                                        <strong>Flaviana Coelho</strong>
+                                        <span>Guia local · 17 avaliações</span>
                                     </div>
-                                    <div class="rc-google-dot">
-                                        <span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span>
-                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
                                 </div>
                                 <div class="rc-stars">★★★★★</div>
-                                <p class="rc-text">Voltei a praticar esporte após lesão no joelho graças ao trabalho da
-                                    Isabela. Acompanhamento preciso, dedicado e personalizado. O Bela Studio é
-                                    referência em fisioterapia na região!</p>
+                                <p class="rc-text">Experiência incrível! Profissionais competentes, atenciosas e com escuta ativa! Minha família e eu temos muito a agradecer pela dedicação, empenho e disposição para com todas nós! Muito obrigada e em especial a você Bela, gratidão! ❤</p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="rc-header">
+                                    <div class="rc-avatar" style="background:#00838F;">C</div>
+                                    <div class="rc-info">
+                                        <strong>Cristiana Pôssas</strong>
+                                        <span>Guia local · 56 avaliações</span>
+                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
+                                </div>
+                                <div class="rc-stars">★★★★★</div>
+                                <p class="rc-text">O Studio Bela é ótimo! Amo o atendimento das fisioterapeutas! O cuidado e a competência são suas marcas registradas. Super recomendo! A nutricionista Aline também é maravilhosa! Muito atenciosa e sempre disposta a nos ajudar.</p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="rc-header">
+                                    <div class="rc-avatar" style="background:#4E342E;">C</div>
+                                    <div class="rc-info">
+                                        <strong>Carolina Mendes Bittencourt</strong>
+                                        <span>Avaliação no Google</span>
+                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
+                                </div>
+                                <div class="rc-stars">★★★★★</div>
+                                <p class="rc-text">Excelente! Profissionais maravilhosos, atenciosos e muito competentes. O estúdio é impecável, limpo e super aconchegante.</p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="rc-header">
+                                    <div class="rc-avatar" style="background:#4527A0;">I</div>
+                                    <div class="rc-info">
+                                        <strong>Igor Hespanha</strong>
+                                        <span>Guia local · 41 avaliações</span>
+                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
+                                </div>
+                                <div class="rc-stars">★★★★★</div>
+                                <p class="rc-text">Que atendimento brilhante, pessoas certas no lugar certo, completamente imprescindível e perfeito, com preço justo.</p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="rc-header">
+                                    <div class="rc-avatar" style="background:#B71C1C;">B</div>
+                                    <div class="rc-info">
+                                        <strong>Bruna Ferreira</strong>
+                                        <span>6 avaliações</span>
+                                    </div>
+                                    <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
+                                </div>
+                                <div class="rc-stars">★★★★★</div>
+                                <p class="rc-text">A melhor clínica de fisioterapia e pilates de Contagem, excelência na estrutura e no atendimento, super indico!</p>
                             </div>
 
                         </div><!-- /.rc-track -->
@@ -497,6 +546,10 @@
                         <button class="rc-dot" aria-label="Avaliação 4"></button>
                         <button class="rc-dot" aria-label="Avaliação 5"></button>
                         <button class="rc-dot" aria-label="Avaliação 6"></button>
+                        <button class="rc-dot" aria-label="Avaliação 7"></button>
+                        <button class="rc-dot" aria-label="Avaliação 8"></button>
+                        <button class="rc-dot" aria-label="Avaliação 9"></button>
+                        <button class="rc-dot" aria-label="Avaliação 10"></button>
                     </div>
 
                 </div><!-- /.rc-carousel-root -->
@@ -884,9 +937,11 @@
         <!-- Barra inferior -->
         <div class="footer-bottom">
             <div class="container footer-bottom-inner">
-                <span>&copy; 2026 Bela Studio · Todos os direitos reservados</span>
-                <span class="footer-credit">Desenvolvido por <a href="https://www.instagram.com/castielbits/"
-                        target="_blank">Castielbits</a></span>
+                <div class="footer-copy-links" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <span>&copy; 2026 Bela Studio · Todos os direitos reservados</span>
+                    <a href="politica-de-privacidade.html" style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none;">Política de Privacidade</a>
+                </div>
+                <span class="footer-credit">Desenvolvido por <a href="https://www.instagram.com/castielbits/" target="_blank">Castielbits</a></span>
             </div>
         </div>
     </footer>

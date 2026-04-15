@@ -2594,7 +2594,7 @@ section {
 @media (max-width: 768px) {
     .hero {
         align-items: flex-end;
-        padding-bottom: 320px; /* Text pushed up further */
+        padding-bottom: 40vh;
     }
     .hero-content {
         margin-top: 0;

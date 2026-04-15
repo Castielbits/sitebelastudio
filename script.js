@@ -195,18 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let gDragStartX = null;
         const stage = galleryTrack.parentElement;
 
-        stage.addEventListener('pointerdown', e => {
-            gDragStartX = e.clientX;
+        stage.addEventListener('touchstart', e => {
+            gDragStartX = e.touches[0].clientX;
             galleryTrack.style.transition = 'none';
-            stage.setPointerCapture(e.pointerId);
-        });
+        }, { passive: true });
 
-        stage.addEventListener('pointerup', e => {
+        stage.addEventListener('touchend', e => {
             if (gDragStartX === null) return;
-            const dx = e.clientX - gDragStartX;
+            const dx = e.changedTouches[0].clientX - gDragStartX;
             gDragStartX = null;
             galleryTrack.style.transition = '';
-            if (Math.abs(dx) > 50) {
+            if (Math.abs(dx) > 40) {
                 stopGalleryAutoplay();
                 galleryGoTo(galleryCurrent + (dx < 0 ? 1 : -1));
                 startGalleryAutoplay();
@@ -215,11 +214,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        stage.addEventListener('pointercancel', () => {
+        // Mouse support for desktop
+        stage.addEventListener('mousedown', e => {
+            gDragStartX = e.clientX;
+            galleryTrack.style.transition = 'none';
+        });
+
+        const handleMouseUp = (e) => {
+            if (gDragStartX === null) return;
+            const dx = e.clientX - gDragStartX;
             gDragStartX = null;
             galleryTrack.style.transition = '';
-            galleryGoTo(galleryCurrent);
-        });
+            if (Math.abs(dx) > 40) {
+                stopGalleryAutoplay();
+                galleryGoTo(galleryCurrent + (dx < 0 ? 1 : -1));
+                startGalleryAutoplay();
+            } else {
+                galleryGoTo(galleryCurrent);
+            }
+        };
+
+        stage.addEventListener('mouseup', handleMouseUp);
+        stage.addEventListener('mouseleave', handleMouseUp);
 
         window.addEventListener('resize', () => {
             buildDots();

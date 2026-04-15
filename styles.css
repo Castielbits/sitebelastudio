@@ -750,6 +750,11 @@ section {
 .gallery-carousel-stage {
     overflow: hidden;
     width: 100%;
+    touch-action: pan-y; /* Crucial for reliable swiping/pointer events on mobile */
+    cursor: grab;
+}
+.gallery-carousel-stage:active {
+    cursor: grabbing;
 }
 
 .gallery-carousel-track {
@@ -786,30 +791,36 @@ section {
 .gallery-dots {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     margin-top: 24px;
+    padding: 10px 0; /* Add padding to prevent any box-shadow clipping */
 }
 
 .gallery-dot {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: rgba(4, 191, 138, 0.25);
+    margin: 0;
+    padding: 0;
+    background: rgba(4, 191, 138, 0.3);
     border: none;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 0;
 }
 
 .gallery-dot.active {
     background: var(--primary-color);
-    transform: scale(1.35);
-    box-shadow: 0 0 8px rgba(4, 191, 138, 0.45);
+    transform: scale(1.6);
+    box-shadow: 0 0 6px rgba(4, 191, 138, 0.3);
 }
 
 .gallery-dot:hover {
     background: var(--primary-color);
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 /* Responsive */
@@ -2583,7 +2594,7 @@ section {
 @media (max-width: 768px) {
     .hero {
         align-items: flex-end;
-        padding-bottom: 220px;
+        padding-bottom: 320px; /* Text pushed up further */
     }
     .hero-content {
         margin-top: 0;

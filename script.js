@@ -371,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entries[0].isIntersecting && !animated) {
                 animated = true;
                 counters.forEach(counter => {
+                    if (!counter.hasAttribute('data-target')) return;
                     const updateCount = () => {
                         const target = +counter.getAttribute('data-target');
                         const count = +counter.innerText;
@@ -389,6 +390,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.5 });
         
         counterObserver.observe(statsSection);
+    }
+
+    // Instagram embeds — força o processamento dos blockquotes
+    function processInstagramEmbeds() {
+        if (window.instgrm && window.instgrm.Embeds) {
+            window.instgrm.Embeds.process();
+            return true;
+        }
+        return false;
+    }
+
+    if (!processInstagramEmbeds()) {
+        let igAttempts = 0;
+        const igInterval = setInterval(() => {
+            igAttempts++;
+            if (processInstagramEmbeds() || igAttempts > 50) {
+                clearInterval(igInterval);
+            }
+        }, 250);
     }
 
     // Google Review Counters Animation

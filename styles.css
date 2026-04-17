@@ -1293,32 +1293,28 @@ section {
 .rc-arrow-prev:hover { transform: translateY(calc(-50% - 20px)) translateX(-2px); }
 .rc-arrow-next:hover { transform: translateY(calc(-50% - 20px)) translateX(2px); }
 
-/* ── Dots ── */
-.rc-dots {
+/* ── Indicador numérico ── */
+.rc-counter {
     position: absolute;
-    bottom: 8px;
+    bottom: 4px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark-green);
+    background: rgba(255, 255, 255, 0.92);
+    padding: 5px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    user-select: none;
+    font-variant-numeric: tabular-nums;
 }
 
-.rc-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.15);
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, width 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.35s ease;
-    padding: 0;
-}
-
-.rc-dot.active {
-    width: 28px;
-    border-radius: 4px;
-    background: var(--primary-color);
+.rc-text-empty {
+    font-style: italic;
+    color: #888;
 }
 
 @media (max-width: 560px) {

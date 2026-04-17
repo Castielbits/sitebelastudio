@@ -247,12 +247,121 @@ document.addEventListener('DOMContentLoaded', () => {
         startGalleryAutoplay();
     }
 
+    // ── Reviews Data (Google Reviews — Bela Studio) ──
+    const reviewsData = [
+        { author: "Edmar Alves", date: "há 1 ano", rating: 5, text: "Super recomendo esse Studio! A Isabella (Bella) é uma profissional muito competente e super dedicada, atendimento super gentil de toda equipe e adora celebrar e cativar seus clientes com mimos em datas comemorativas, aniversários, eventos para saúde e bem estar. Além de oferecer o serviço de Pilates têm parcerias com profissionais de nutrição, massagistas, entre outros que fazem atendimentos agendados no local. Super indico e sou muito grato a Bela e às meninas por todo trabalho comigo em mais de 3 anos, onde pude melhorar muito minhas dores lombares e desenvolver meu equilíbrio e fortalecimento de corpo e mente. Gratidão!" },
+        { author: "Davi Ladislau Ferreira", date: "há 1 ano", rating: 5, text: "Adorei a minha experiência no Bela Studio Pilates e Reabilitação! Desde o primeiro dia, fui recebido com um sorriso caloroso e uma energia super positiva. O ambiente é limpo, aconchegante e perfeito para relaxar e se concentrar nos exercícios. Os instrutores são incrivelmente atenciosos e realmente entendem das necessidades individuais de cada aluno. Sabem como motivar e adaptar as aulas para todos os níveis. É um lugar maravilhoso! Impossível sair de lá sem se sentir renovado e mais leve." },
+        { author: "Tarley Lana", date: "há 1 ano", rating: 5, text: "Estou extremamente satisfeito com minha experiência no Bela Studio de Pilates e Reabilitação. Minha condição física melhorou muito. Antes de começar, sofria bastante com dores durante as corridas, mas desde que iniciei o Pilates, essas dores praticamente desapareceram. Toda a equipe é extremamente atenciosa e dedicada. Recomendo o Bela Studio a todos que desejam melhorar sua saúde!" },
+        { author: "Felipe Pedrosa", date: "há 1 ano", rating: 5, text: "Doze meses. Esse é o tempo em que estou sendo assistido pelo Espaço Bela Studio e Pilates. Premiado com duas hérnias de disco, a atividade é um remédio que eu não deixo de usar. No estúdio, com ótimas profissionais, esse remédio deixou de ser amargo para se tornar prazeroso. Obrigado, equipe!" },
+        { author: "João Guimarães", date: "há 1 ano", rating: 5, text: "Bem impressionado nestes quase dois meses que pratico pilates na Bela Studio. Muito profissionalismo e comprometimento de toda equipe. Agradeço a Isabela, Fernanda, Ana e Bruna pelo carinho e dedicação." },
+        { author: "Clô Guimarães", date: "há 1 ano", rating: 5, text: "Apesar de ter começado a fazer pilates há quase dois meses, já posso dizer com convicção que essa clínica é de ótima qualidade, com uma equipe excelente e um ambiente muito agradável!!! Estou amando!!! 🥰" },
+        { author: "Gabriela Mendes Felisberto", date: "há 1 ano", rating: 5, text: "Super recomendo o Bela Studio, ambiente agradável, acolhedor, e profissionais capacitadas para nos atender. Confiei a recuperação da minha mãe nas profissionais e tenho visto resultados muito positivos." },
+        { author: "Ana Sá", date: "há 1 ano", rating: 5, text: "Estou muito satisfeita tanto com as instalações quanto com as profissionais. São todos muito competentes e atenciosos. O espaço é perfeito para um atendimento personalizado." },
+        { author: "Juliane Rezende", date: "há 1 ano", rating: 5, text: "Excelente ambiente, com profissionais maravilhosos! Cliente há mais de 5 anos, fiz o melhor investimento da minha vida, só tenho gratidão pelo atendimento, amizade, gentileza e atenção! Obrigada à equipe do Bela Studio Pilates e Reabilitação." },
+        { author: "Sandro Pardini", date: "há 4 anos", rating: 5, text: "Profissionais competentes! Eu e minha família (minha esposa, filha e a nossa tia de 94 anos somos clientes) temos muito a agradecer pela dedicação, empenho e disposição para com todos nós. Muito obrigado!" },
+        { author: "Elza Sabino Montalvão", date: "há 1 ano", rating: 5, text: "Muito satisfeita pelo atendimento que me foi dado na clínica, em especial meu agradecimento à Naiara que me atendeu com muita simpatia e competência." },
+        { author: "Cristiana Pôssas", date: "há 2 anos", rating: 5, text: "O Studio Bela é ótimo! Amo o atendimento das fisioterapeutas! O cuidado e a competência são suas marcas registradas. Super recomendo! A nutricionista Aline também é maravilhosa! Muito atenciosa e sempre disposta a nos ajudar. Obtive ótimos resultados com as suas orientações!" },
+        { author: "Flaviana Coelho", date: "há 3 anos", rating: 5, text: "Experiência incrível! Profissionais competentes, atenciosas e com escuta ativa! Minha família e eu temos muito a agradecer pela dedicação, empenho e disposição para com todas nós! Muito obrigada e em especial a você Bela, gratidão! ❤" },
+        { author: "Jessica de Oliveira", date: "há 4 anos", rating: 5, text: "Bela e Mariana são profissionais excelentes, atenciosas e que estimulam a gente a dar o nosso melhor, sempre com muita segurança. O espaço é muito limpo, organizado e convidativo. Já fiz pilates em muitos lugares e cidades diferentes e, sem dúvida, tem sido minha melhor experiência até hoje. Super recomendo/adoro!!! ❤" },
+        { author: "Jessica Kellen", date: "há 1 ano", rating: 5, text: "Se tem um espaço que faz o melhor para as suas clientes e parceiras é o Bela Studio, muito bem gerenciado e cuidado, indico sem pensar duas vezes!" },
+        { author: "Lorena Sthefanie", date: "há 1 ano", rating: 5, text: "Um lugar aconchegante, lindo 😻😻😻 ótimos profissionais, principalmente a Isabela. Tenho um carinho enorme por ela. ❤️❤️" },
+        { author: "Israel Lisboa", date: "há 1 ano", rating: 5, text: "Excelente! Ambiente aconchegante, profissionais excelentes! Recomendo demais! Parabéns pelo trabalho incrível de vocês!" },
+        { author: "Francine Santana", date: "há 1 ano", rating: 5, text: "Espaço bem montado, com equipamentos novos, limpo, ambiente aconchegante e gostoso. Profissionais bem educados e atenciosos, energia boa." },
+        { author: "Victor Rafael", date: "há 1 ano", rating: 5, text: "Excelente atendimento! Clínica muito organizada, aparelhos novos e bem conservados e excelentes profissionais!" },
+        { author: "Magleyvison Gomes", date: "há 1 ano", rating: 5, text: "Local de fácil acesso e com ótima infraestrutura, equipamentos bem conservados e limpos! A equipe também é show de bola, super indico!" },
+        { author: "Thalita Coutinho de Oliveira", date: "há 1 ano", rating: 5, text: "Profissionais competentes e atenciosos. Sempre comprometidos com o bem-estar de cada aluno." },
+        { author: "Elaine Oliveira", date: "há 1 ano", rating: 3, text: "Avaliação feita e toda aula preciso contar minha avaliação para a instrutora." },
+        { author: "Priscila Deise Pinto", date: "há 1 ano", rating: 5, text: "Recomendo o Bela Studio Fisioterapia, equipe com atendimento maravilhoso, atenciosas, que estão sempre buscando atendimento de qualidade, se atualizando!" },
+        { author: "Karina Arruda da Cruz Avelar", date: "há 1 ano", rating: 5, text: "Muito bem atendida por todas as profissionais. Super recomendo!" },
+        { author: "Cleuzimar Pereira", date: "há 1 ano", rating: 5, text: "Muito bom, ambiente tranquilo e muitos exercícios, para melhorar nossa qualidade de vida. Super indico." },
+        { author: "Firminia Reis", date: "há 1 ano", rating: 5, text: "Atendimento excelente! O tratamento proposto pela Bela me proporcionou qualidade de vida! Gratidão!" },
+        { author: "Bruna Ferreira", date: "há 1 ano", rating: 5, text: "A melhor clínica de fisioterapia e pilates de Contagem, excelência na estrutura e no atendimento, super indico!" },
+        { author: "Iury Mendes", date: "há 1 ano", rating: 5, text: "Melhor lugar para fazer sua reabilitação de lesões e para relaxamento do estresse do dia a dia também!" },
+        { author: "Ueriston Montalvão", date: "há 1 ano", rating: 5, text: "Excelente atendimento e serviço, estão todos de parabéns. Com certeza retornarei." },
+        { author: "Cidinha Diniz", date: "há 1 ano", rating: 5, text: "Quando fiz pilates fui muito bem atendida pela Isabela." },
+        { author: "Gisele de Lacerda", date: "há 1 ano", rating: 5, text: "A Bela e sua equipe são excelentes profissionais!" },
+        { author: "Camila Lais Oliveira", date: "há 1 ano", rating: 5, text: "Excelente espaço, muito organizado, profissionais extremamente qualificados. Ótimo atendimento…" },
+        { author: "Juliana Brito", date: "há 1 ano", rating: 5, text: "Profissionais educados, capacitados e ótimo espaço físico." },
+        { author: "Andre Araújo", date: "há 1 ano", rating: 5, text: "Atendimento ótimo, profissionais de primeira qualidade, super indico." },
+        { author: "Igor Hespanha", date: "há 1 ano", rating: 5, text: "Que atendimento brilhante, pessoas certas no lugar certo, completamente imprescindível e perfeito, com preço justo." },
+        { author: "Ligia", date: "há 1 ano", rating: 5, text: "Ambiente agradável, com profissionais capacitados e atenciosos!" },
+        { author: "Ana Carolina Vidal Torres", date: "há 1 ano", rating: 5, text: "Clínica excelente, atendimento maravilhoso e o pilates é de alta qualidade!!!" },
+        { author: "Samuel Barreto", date: "há 1 ano", rating: 5, text: "Muito bom atendimento com excelentes profissionais!" },
+        { author: "Verinaldo Firmino", date: "há 1 ano", rating: 5, text: "Profissionais SUPER capacitados. Ótimo atendimento." },
+        { author: "Rachel Guimaraes", date: "há 2 anos", rating: 4, text: "Muito bem estruturado e profissionais gentis e atenciosos." },
+        { author: "Ariane Correa", date: "há 1 ano", rating: 5, text: "Atendimento com excelência, profissionalismo, cuidado e carinho." },
+        { author: "Mariangele Montalvão", date: "há 1 ano", rating: 5, text: "Eficiência e carisma, encantada com o atendimento da Naiara 😍." },
+        { author: "Thiago Batista", date: "há 1 ano", rating: 5, text: "Clínica excelente, com ótimos profissionais." },
+        { author: "Giazi Cavalcante", date: "há 3 anos", rating: 5, text: "Excelentes profissionais. Ambiente ótimo. Adoro." },
+        { author: "Débora Novaes", date: "há 1 ano", rating: 5, text: "Atendimento com excelência. Super indico 😍" },
+        { author: "Andrezão Trooper", date: "há 1 ano", rating: 5, text: "Excelente, atendimento espetacular." },
+        { author: "Andreza Pires", date: "há 1 ano", rating: 5, text: "Profissional exímia, dedicada e apaixonada." },
+        { author: "Vanessa Campos Lisboa", date: "há 1 ano", rating: 5, text: "Sucesso!" },
+        { author: "Andre Rocha de Souza", date: "há 5 anos", rating: 5, text: "Ótimo!" },
+        { author: "Patrícia Mendes", date: "há 1 ano", rating: 5, text: "Atendimento diferenciado." },
+        { author: "Ednéia Machado", date: "há 3 semanas", rating: 5, text: "" },
+        { author: "Jose Lima", date: "há 3 meses", rating: 5, text: "" },
+        { author: "Anusca Dias", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Angelica Correa", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Carolina Mendes Bittencourt", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Thaissa Gonçalves", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Marcelo Cardoso", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Naiara Montalvão", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Eduardo Marzzo Gomes Ribeiro", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Mara Núbia Sabino Montalvão", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Gabriela Mendes e Silva", date: "há 1 ano", rating: 5, text: "" },
+        { author: "J. Carpini", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Martha Flor", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Gleiciellen Fernandes", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Neide Pardinho", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Ana Carolina S. Barreto", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Gabriel Santos", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Natalia A. Gabriel", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Fabio Lucio Costa", date: "há 1 ano", rating: 5, text: "" },
+        { author: "Erinelcia Mendonça", date: "há 2 anos", rating: 5, text: "" },
+        { author: "Helbert Fernandes", date: "há 3 anos", rating: 5, text: "" },
+        { author: "Renata Diniz", date: "há 3 anos", rating: 5, text: "" },
+        { author: "Simone Nascimento", date: "há 5 anos", rating: 5, text: "" }
+    ];
+
+    function renderReviews() {
+        const track = document.getElementById('rcTrack');
+        if (!track) return;
+        const palette = ['#00796B','#1565C0','#6A1B9A','#E65100','#2E7D32','#C2185B','#00838F','#4E342E','#4527A0','#B71C1C','#5D4037','#37474F','#AD1457','#283593','#0277BD','#558B2F','#EF6C00','#7B1FA2'];
+        const escape = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        track.innerHTML = reviewsData.map((r, i) => {
+            const initial = r.author.trim().charAt(0).toUpperCase();
+            const color = palette[i % palette.length];
+            const rounded = Math.round(r.rating);
+            const stars = '★'.repeat(rounded) + '☆'.repeat(5 - rounded);
+            const subtitle = `Avaliação no Google · ${escape(r.date)}`;
+            const body = r.text
+                ? `<p class="rc-text">${escape(r.text)}</p>`
+                : `<p class="rc-text rc-text-empty">Avaliou o Bela Studio com ${rounded} ${rounded === 1 ? 'estrela' : 'estrelas'}.</p>`;
+            return `
+                <div class="review-card">
+                    <div class="rc-header">
+                        <div class="rc-avatar" style="background:${color};">${escape(initial)}</div>
+                        <div class="rc-info">
+                            <strong>${escape(r.author)}</strong>
+                            <span>${subtitle}</span>
+                        </div>
+                        <div class="rc-google-dot"><span style="color:#4285F4;font-weight:700;font-size:1rem;">G</span></div>
+                    </div>
+                    <div class="rc-stars">${stars}</div>
+                    ${body}
+                </div>
+            `;
+        }).join('');
+    }
+    renderReviews();
+
     // ── Reviews Carousel ──
     const rcTrack = document.getElementById('rcTrack');
     const rcStage = document.getElementById('rcStage');
     if (rcTrack && rcStage) {
         const rcCards   = [...rcTrack.querySelectorAll('.review-card')];
-        const rcDots    = [...document.querySelectorAll('.rc-dot')];
+        const rcCounter = document.getElementById('rcCounter');
         const rcPrev    = document.getElementById('rcPrev');
         const rcNext    = document.getElementById('rcNext');
         const total     = rcCards.length;
@@ -276,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (diff === 1) card.classList.add('rc-adjacent');
             });
 
-            rcDots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+            if (rcCounter) rcCounter.textContent = `${current + 1} / ${total}`;
         }
 
         function goTo(index) {
@@ -291,7 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         rcPrev.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
         rcNext.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
-        rcDots.forEach((dot, i) => dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); }));
 
         // Click on side cards advances the carousel
         rcCards.forEach((card, i) => {

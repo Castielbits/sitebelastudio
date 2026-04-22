@@ -24,7 +24,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
+
+    <!-- Preload do banner do hero (LCP) -->
+    <link rel="preload" as="image" href="images/bannerbelastudio.png" fetchpriority="high">
 </head>
 
 <body>
@@ -39,7 +42,7 @@
     <div class="intro-splash" id="introSplash">
         <div class="intro-bg-glow"></div>
         <div class="intro-logo-wrapper">
-            <img src="images/logosemfundo.png" alt="Bela Studio" class="intro-logo">
+            <img src="images/logosemfundo.png" alt="Bela Studio" class="intro-logo" width="3556" height="2845" decoding="async">
             <div class="intro-shine"></div>
         </div>
         <p class="intro-tagline">Pilates &middot; Fisioterapia &middot; Reabilitação</p>
@@ -52,7 +55,7 @@
         </div>
         <div class="container header-content">
             <a href="#" class="logo-link">
-                <img src="images/logobelastudio.png" alt="Bela Studio Logo" class="logo">
+                <img src="images/logobelastudio.png" alt="Bela Studio Logo" class="logo" width="1080" height="1080" decoding="async">
             </a>
 
             <nav class="desktop-nav">
@@ -110,7 +113,7 @@
                 <div class="about-split fade-in">
                     <div class="about-image-wrapper">
                         <img src="images/fotosobremim.png" alt="Isabela Gonçalves - Fisioterapeuta"
-                            class="about-person-img" loading="lazy">
+                            class="about-person-img" loading="lazy" width="852" height="1280" decoding="async">
                     </div>
                     <div class="about-text-content">
                         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
@@ -177,34 +180,34 @@
                 <div class="gallery-carousel-stage">
                     <div class="gallery-carousel-track" id="galleryTrack">
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/dra2.jpeg" alt="Dra. Isabela na recepção do Bela Studio" loading="lazy">
+                            <img src="Espaco/dra2.jpeg" alt="Dra. Isabela na recepção do Bela Studio" loading="lazy" width="854" height="1280" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
                             <img src="Espaco/espaco.jpeg" alt="Sala de Pilates com equipamentos profissionais"
-                                loading="lazy">
+                                loading="lazy" width="1280" height="854" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
                             <img src="Espaco/espaco2.jpeg" alt="Espaço completo de treino e reabilitação"
-                                loading="lazy">
+                                loading="lazy" width="1280" height="854" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/dra1.jpeg" alt="Dra. Isabela Gonçalves - Fisioterapeuta" loading="lazy">
+                            <img src="Espaco/dra1.jpeg" alt="Dra. Isabela Gonçalves - Fisioterapeuta" loading="lazy" width="838" height="1280" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/espaco3.jpeg" alt="Fachada do Bela Studio" loading="lazy">
+                            <img src="Espaco/espaco3.jpeg" alt="Fachada do Bela Studio" loading="lazy" width="1280" height="854" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/espaco4.jpeg" alt="Recepção acolhedora do Bela Studio" loading="lazy">
+                            <img src="Espaco/espaco4.jpeg" alt="Recepção acolhedora do Bela Studio" loading="lazy" width="854" height="1280" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/espaco5.jpeg" alt="Consultório elegante" loading="lazy">
+                            <img src="Espaco/espaco5.jpeg" alt="Consultório elegante" loading="lazy" width="832" height="1280" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
-                            <img src="Espaco/espaco6.jpeg" alt="Detalhes do espaço" loading="lazy">
+                            <img src="Espaco/espaco6.jpeg" alt="Detalhes do espaço" loading="lazy" width="854" height="1280" decoding="async">
                         </div>
                         <div class="gallery-carousel-slide">
                             <img src="images/fotocoluna.jpeg" alt="Tratamento especializado para dor de coluna"
-                                loading="lazy">
+                                loading="lazy" width="960" height="1280" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -234,7 +237,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="images/fotocoluna.jpeg" alt="Tratamento para Dor de Coluna"
-                                    class="service-story-img" loading="lazy">
+                                    class="service-story-img" loading="lazy" width="960" height="1280" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -260,7 +263,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/pilates.jpg" alt="Pilates" class="service-story-img"
-                                    style="object-position: center 40%;" loading="lazy">
+                                    style="object-position: center 40%;" loading="lazy" width="752" height="1360" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -268,9 +271,9 @@
                             <p class="service-desc-horizontal">O pilates é indicado para quem busca mais força,
                                 mobilidade, consciência corporal e melhora da postura, sempre com orientação
                                 profissional e atenção às suas necessidades.</p>
-                            <p class="service-desc-horizontal">No Bela Studio, as aulas são conduzidas com foco em
+                            <p class="service-desc-horizontal">No Bela Studio, as sessões são conduzidas com foco em
                                 movimento bem executado, prevenção de lesões e evolução consistente, respeitando o ritmo
-                                e os objetivos de cada aluno.</p>
+                                e os objetivos de cada paciente.</p>
                             <a href="https://wa.me/5531988633814" class="btn btn-primary btn-flex"
                                 target="_blank">Agende
                                 sua avaliação <svg class="wa-icon-svg" xmlns="http://www.w3.org/2000/svg"
@@ -286,7 +289,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/fisioterapia.jpg" alt="Reabilitação Física"
-                                    class="service-story-img" loading="lazy">
+                                    class="service-story-img" loading="lazy" width="768" height="1344" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -312,7 +315,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/acupuntura.jpg" alt="Acupuntura" class="service-story-img"
-                                    style="object-position: center 35%;" loading="lazy">
+                                    style="object-position: center 35%;" loading="lazy" width="752" height="1376" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -337,7 +340,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/depilacao-laser.jpg" alt="Depilação a Laser"
-                                    class="service-story-img" loading="lazy">
+                                    class="service-story-img" loading="lazy" width="1168" height="784" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -362,7 +365,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/nutricionista.jpg" alt="Nutricionista"
-                                    class="service-story-img" style="object-position: center 55%;" loading="lazy">
+                                    class="service-story-img" style="object-position: center 55%;" loading="lazy" width="752" height="1376" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -387,7 +390,7 @@
                         <div class="service-img-horizontal">
                             <div class="service-story-ring">
                                 <img src="especialidades/massoterapia.jpg" alt="Massoterapia" class="service-story-img"
-                                    loading="lazy">
+                                    loading="lazy" width="768" height="1344" decoding="async">
                             </div>
                         </div>
                         <div class="service-info-horizontal">
@@ -480,30 +483,30 @@
                 <div class="marquee-row">
                     <div class="marquee-track marquee-left">
                         <div class="print-item"><img src="images/depoimento-01.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-02.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-03.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-04.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-05.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-06.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <!-- Duplicado para loop perfeito -->
                         <div class="print-item"><img src="images/depoimento-01.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-02.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-03.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-04.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-05.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-06.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                     </div>
                 </div>
 
@@ -511,30 +514,30 @@
                 <div class="marquee-row">
                     <div class="marquee-track marquee-right">
                         <div class="print-item"><img src="images/depoimento-05.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-06.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-01.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-02.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-03.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-04.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <!-- Duplicado para loop perfeito -->
                         <div class="print-item"><img src="images/depoimento-05.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-06.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-01.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-02.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-03.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                         <div class="print-item"><img src="images/depoimento-04.jpeg"
-                                alt="Depoimento de paciente" class="print-img" loading="lazy"></div>
+                                alt="Depoimento de paciente" class="print-img" loading="lazy" width="720" height="1280" decoding="async"></div>
                     </div>
                 </div>
             </div>
@@ -558,7 +561,7 @@
                 <div class="team-grid" style="display: flex; justify-content: center;">
                     <div class="team-card" style="max-width: 400px;">
                         <img src="images/isabela-goncalves.jpeg" alt="Isabela Gonçalves"
-                            class="team-img" loading="lazy">
+                            class="team-img" loading="lazy" width="683" height="1024" decoding="async">
                         <h3 class="team-name">Isabela Gonçalves</h3>
                         <p class="team-role">Fisioterapeuta</p>
                         <p class="team-bio">Fisioterapeuta com 15 anos de experiência, à frente do Bela Studio Pilates e
@@ -615,7 +618,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Sim! As aulas são adaptadas ao nível de cada aluno. Iniciantes passam por uma avaliação
+                            <p>Sim! As sessões são adaptadas ao nível de cada paciente. Iniciantes passam por uma avaliação
                                 postural antes de começar, garantindo segurança e evolução progressiva.</p>
                         </div>
                     </div>
@@ -770,7 +773,7 @@
 
             <!-- Coluna 1: Marca -->
             <div class="footer-brand">
-                <img src="images/logosemfundo.png" alt="Bela Studio" class="footer-logo">
+                <img src="images/logosemfundo.png" alt="Bela Studio" class="footer-logo" width="3556" height="2845" decoding="async">
                 <p class="footer-tagline">Pilates · Fisioterapia · Reabilitação</p>
                 <p class="footer-desc">15 anos cuidando de quem você é através do movimento bem executado, com olhar
                     clínico e atendimento humanizado.</p>
@@ -849,6 +852,9 @@
                     <a href="politica-de-privacidade.html"
                         style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none;">Política de
                         Privacidade</a>
+                    <a href="termos-de-uso.html"
+                        style="color: rgba(255,255,255,0.7); font-size: 0.85rem; text-decoration: none;">Termos de
+                        Uso</a>
                 </div>
                 <span class="footer-credit">Desenvolvido por <a href="https://www.instagram.com/castielbits/"
                         target="_blank">Castielbits</a></span>
@@ -867,8 +873,7 @@
         <span class="wa-label">Agendar</span>
     </a>
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
